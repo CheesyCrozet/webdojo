@@ -18,6 +18,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/webhook', function(req, res) {
+});
+
+router.post('/webhook', function(req, res) {
     var data = req.body;
 
     if(data.object === 'page') {
