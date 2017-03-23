@@ -19,9 +19,11 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res) {
     //chatService.authenticate(res);
+    console.log("Requete POST recue");
     var data = req.body;
 
     if(data.object === 'page') {
+        console("Requete recue d'une page");
         data.entry.forEach(function(entry) {
             var pageID = entry.id;
             var timeOfEvent = entry.time;
@@ -36,12 +38,13 @@ router.post('/', function(req, res) {
         });
         res.sendStatus(200);
     } else {
-        res.send("vous ,n'etes pas une page");
+        res.send("vous, n'etes pas une page");
     }
 
 });
 
 function receivedMessage(event) {
+    console.log("blabla sur le message recu: ");
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfMessage = event.timestamp;
