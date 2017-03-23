@@ -17,6 +17,17 @@ router.get('/', function(req, res, next) {
   };
 });
 
+app.get('/webhook', function(req, res) {
+      if (req.query['hub.mode'] === 'subscribe' &&
+	            req.query['hub.verify_token'] === "coucou") {
+	      console.log("Validating webhook");
+	          res.status(200).send(req.query['hub.challenge']);
+		    } else {
+			    console.error("Failed validation. Make sure the validation tokens match.");
+			        res.sendStatus(403);          
+				  }  
+});
+
 /* POST route for receiving message */
 router.post('/', function (req, res) {
   var data = req.body;
