@@ -34,7 +34,7 @@ router.post('/', function(req, res) {
                 }
             });
         });
-        req.sendStatus(200);
+        res.sendStatus(200);
     } else {
         res.send("vous ,n'etes pas une page");
     }
