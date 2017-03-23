@@ -37,7 +37,7 @@ router.post('/webhook', function(req, res) {
                     console.log("Webhook unknow event", event);
                 }
             });
-        }
+        });
         req.sendStatus(200);
     }
 
