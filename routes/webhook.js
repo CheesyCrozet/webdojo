@@ -32,13 +32,13 @@ router.post('/', function(req, res) {
                     chatService.sendTextMessage(event.sender.id, event.message.text);
                 } else {
                     console.log("Webhook unknow event", event);
-                }
+                };
             });
         });
         res.sendStatus(200);
     } else {
         res.send("vous n'etes pas une page");
-    }
+    };
 });
 
 module.exports = router;
