@@ -69,8 +69,6 @@ function receivedMessage(event) {
     } else if (messageAttachments) {
         sendTextMessage(senderID, "Message with attachment received");
     }
-}
+};
 
-/* POST route for receiving message */
-router.post('/webhook', function(req, res) {
-);
+module.exports = router;
