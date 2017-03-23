@@ -2,6 +2,6 @@
   "serverUrl": "https://chatbottheoseb.herokuapp.com",
   "weatherApiToken": "<insert your weather api token here>",
   "googleApiToken": "<insert your google geolocalisation api token here>",
-  "pageAccessToken": "<insert your facebook page token here>",
+  "pageAccessToken": "EAACWSaOMVScBAIAlbXCSoSWCYG4ZB6T190l3ko7kmIsilGa4Ae0VnaIT6eULawBQtJrSdhJxDKhvFgw1oqhdI70PxNweA9owMzPNGa8fcZCjMRO987W1PhAyzmm3q7RY9yXgLWRY098P96ILKlmXSM0bWZB7HlBaJwFxNXiSwZDZD",
   "validationToken": "coucou"
 }
