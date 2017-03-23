@@ -23,18 +23,6 @@ router.post('/', function(req, res) {
     console.log(JSON.stringify(data));
     if(data.object === 'page') {
         console("Requete recue d'une page");
-        data.entry.forEach(function(entry) {
-            var pageID = entry.id;
-            var timeOfEvent = entry.time;
-
-            entry.messaging.forEach(function(event) {
-                if(event.message) {
-                    chatService.sendTextMessage(event.sender.id, event.message.text);
-                } else {
-                    console.log("Webhook unknow event", event);
-                };
-            });
-        });
         res.sendStatus(200);
     } else {
         res.send("vous n'etes pas une page");
