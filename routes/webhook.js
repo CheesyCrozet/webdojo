@@ -19,11 +19,9 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res) {
     //chatService.authenticate(res);
-    console.log("coucou");
     var data = req.body;
 
     if(data.object === 'page') {
-        console.log("ya un truc");
         data.entry.forEach(function(entry) {
             var pageID = entry.id;
             var timeOfEvent = entry.time;
