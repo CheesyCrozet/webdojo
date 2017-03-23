@@ -23,6 +23,7 @@ router.get('/webhook', function(req, res) {
 router.post('/webhook', function(req, res) {
     //chatService.authenticate(res);
     var data = req.body;
+    console.log("coucou");
 
     if(data.object === 'page') {
         console.log("ya un truc");
