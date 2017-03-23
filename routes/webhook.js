@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
     if(data.object === 'page') {
         console("Requete recue d'une page");
         res.sendStatus(200);
-    } else
+    } else {
         console.log("pas une page");
         res.send("vous n'etes pas une page");
     };
