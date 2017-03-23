@@ -18,7 +18,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res) {
-    //chatService.authenticate(res);
     console.log("Requete POST recue");
     var data = req.body;
 
@@ -30,7 +29,7 @@ router.post('/', function(req, res) {
 
             entry.messaging.forEach(function(event) {
                 if(event.message) {
-                    receivedMessage(event);
+                    chatService.sendTextMessage(event.sender.id, event.message.text);
                 } else {
                     console.log("Webhook unknow event", event);
                 }
@@ -38,38 +37,8 @@ router.post('/', function(req, res) {
         });
         res.sendStatus(200);
     } else {
-        res.send("vous, n'etes pas une page");
+        res.send("vous n'etes pas une page");
     }
-
 });
-
-function receivedMessage(event) {
-    console.log("blabla sur le message recu: ");
-    var senderID = event.sender.id;
-    var recipientID = event.recipient.id;
-    var timeOfMessage = event.timestamp;
-    var message = event.message;
-
-    console.log("Received message for user %d and page %d at %d with message:",
-    senderID, recipientID, timeOfMessage);
-    console.log(JSON.stringify(message));
-
-    var messageId = message.mid;
-
-    var messageText = message.text;
-    var messageAttachments = message.attachments;
-
-    if (messageText) {
-        switch (messageText) {
-            case 'generic':
-            sendGenericMessage(senderID);
-            break;
-            default:
-            sendTextMessage(senderID, messageText);
-        }
-    } else if (messageAttachments) {
-        sendTextMessage(senderID, "Message with attachment received");
-    }
-};
 
 module.exports = router;
