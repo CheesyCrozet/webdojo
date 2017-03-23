@@ -24,6 +24,7 @@ router.post('/webhook', function(req, res) {
     var data = req.body;
 
     if(data.object === 'page') {
+	console.log("ya un truc");
 	data.entry.forEach(function(entry) {
 	    var pageID = entry.id;
 	    var timeOfEvent = entry.time;
