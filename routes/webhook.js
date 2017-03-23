@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res) {
     console.log("Requete POST recue");
     var data = req.body;
-
+    console.log(JSON.stringify(data));
     if(data.object === 'page') {
         console("Requete recue d'une page");
         data.entry.forEach(function(entry) {
